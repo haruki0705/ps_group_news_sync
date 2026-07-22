@@ -29,7 +29,6 @@ return [
                 $item['title'] .= ' -' . $concept . '- をご紹介！';
             }
         }
-
         return $item;
     },
 ];
