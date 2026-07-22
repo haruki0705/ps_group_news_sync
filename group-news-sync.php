@@ -12,6 +12,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
+require_once plugin_dir_path(__FILE__) . 'site-config.php';
 require_once plugin_dir_path(__FILE__) . 'rest-api.php';
 
 
