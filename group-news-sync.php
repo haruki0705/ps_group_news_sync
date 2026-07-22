@@ -4,7 +4,7 @@
  * Plugin Name: PLAZA SELECT GROUP NEWS SYNC
  * Plugin URI: https://github.com/haruki0705/ps_group_news_sync
  * Description: プラザセレクトグループの更新情報をREST APIとして公開します。
- * Version: 1.0.1
+ * Version: 0.8.1
  * Author: hareweb*
  */
 
