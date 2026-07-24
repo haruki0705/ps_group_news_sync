@@ -33,24 +33,32 @@ function group_news_endpoint()
             continue;
         }
 
-        $item = [
-            'id'          => $post->ID,
-            'external_id' => $config['site'] . '_' . $post->ID,
-            'date'        => get_the_date(DATE_ATOM, $post),
-            'title'       => get_the_title($post),
-            'url'         => get_permalink($post),
-            'site'        => $config['site'],
-        ];
-
-        if (
-            isset($config['build_item']) &&
-            is_callable($config['build_item'])
-        ) {
-            $item = $config['build_item']($item, $post);
-        }
-
-        $items[] = $item;
+        $items[] = group_news_build_item($post, $config);
     }
 
     return rest_ensure_response($items);
+}
+
+/**
+ * REST APIとPush同期で共通利用する更新情報のデータを作成します。
+ */
+function group_news_build_item(WP_Post $post, array $config): array
+{
+    $item = [
+        'id'          => $post->ID,
+        'external_id' => $config['site'] . '_' . $post->ID,
+        'date'        => get_the_date(DATE_ATOM, $post),
+        'title'       => get_the_title($post),
+        'url'         => get_permalink($post),
+        'site'        => $config['site'],
+    ];
+
+    if (
+        isset($config['build_item']) &&
+        is_callable($config['build_item'])
+    ) {
+        $item = $config['build_item']($item, $post);
+    }
+
+    return $item;
 }

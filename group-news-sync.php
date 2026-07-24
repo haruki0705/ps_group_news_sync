@@ -14,6 +14,7 @@ if (! defined('ABSPATH')) {
 
 require_once plugin_dir_path(__FILE__) . 'site-config.php';
 require_once plugin_dir_path(__FILE__) . 'rest-api.php';
+require_once plugin_dir_path(__FILE__) . 'push-sync.php';
 
 
 require_once __DIR__ . '/plugin-update-checker/plugin-update-checker.php';
